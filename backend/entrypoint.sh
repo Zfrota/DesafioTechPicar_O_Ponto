@@ -7,8 +7,7 @@ while ! nc -z db 5432; do
 done
 echo "PostgreSQL ready!"
 
+python manage.py makemigrations
 python manage.py migrate
-python manage.py seed_achievements
-python manage.py collectstatic --noinput
 
 exec "$@"
